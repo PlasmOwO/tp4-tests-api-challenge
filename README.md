@@ -58,7 +58,7 @@ Quelques routes sont déjà codées, d’autres non. À vous de compléter !
 
 ---
 
-### 🔎 3. Bonus (niveau +1)
+### 🔎 3. Bonus 
 
 - [ ] Ajouter une vérification pour les noms vides dans le `POST /users`
 - [ ] Retourner une erreur 400 si `"name"` est manquant
