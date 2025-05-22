@@ -26,6 +26,10 @@ def test_delete_non_existing_user():
     res = requests.delete(f"{BASE_URL}/users/999")
     assert res.status_code == 404
 
+def test_create_empty_user():
+    res = requests.post(f"{BASE_URL}/users", json={})
+    assert res.status_code == 400
+
 # TODO: test_get_user_by_id
 # TODO: test_delete_user
 
