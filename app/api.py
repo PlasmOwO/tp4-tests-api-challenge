@@ -19,8 +19,21 @@ def create_user():
 def get_users():
     return jsonify(list(users.values()))
 
-# TODO: Implémenter GET /users/<id>
-# TODO: Implémenter DELETE /users/<id>
+
+@app.route('/users/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    user = users.get(user_id)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify(user),200
+
+
+@app.route('/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    user = users.pop(user_id, None)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify({'message': 'User deleted'}), 204
 
 if __name__ == '__main__':
     app.run(debug=True)
